@@ -12,7 +12,7 @@ package clases;
 public class Paciente {
     String nombre, tel, correo, sangre, alergias, padecimiento;
     float peso, altura, presion;
-    int edad, id;
+    int id, edad;
     public Paciente() {
     }
 
