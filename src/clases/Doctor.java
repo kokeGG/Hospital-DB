@@ -11,12 +11,12 @@ package clases;
  */
 public class Doctor {
     String nombreD, telD, direccion, correoD, ced, especialidad, horario;
-    int edad;
+    int edad, id;
 
     public Doctor() {
     }
 
-    public Doctor(String nombreD, String telD, String direccion, String correoD, String ced, String especialidad, String horario, int edad) {
+    public Doctor(String nombreD, String telD, String direccion, String correoD, String ced, String especialidad, String horario, int edad, int id) {
         this.nombreD = nombreD;
         this.telD = telD;
         this.direccion = direccion;
@@ -25,6 +25,7 @@ public class Doctor {
         this.especialidad = especialidad;
         this.horario = horario;
         this.edad = edad;
+        this.id = id;
     }
 
     public String getNombreD() {
@@ -89,6 +90,14 @@ public class Doctor {
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+    
+    public int getId(){
+        return id;
+    }
+    
+    public void setId(int id){
+        this.id = id;
     }
     
     

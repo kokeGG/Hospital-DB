@@ -104,7 +104,7 @@ public class HospitalDAO implements CRUD{
 
             r = ps.executeUpdate();
         } catch (Exception e) {
-            System.out.println("Error al modificar un alumno: " + e);
+            System.out.println("Error al modificar un paciente: " + e);
         }
         return r;
     }
