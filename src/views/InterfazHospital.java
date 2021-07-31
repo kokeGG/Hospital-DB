@@ -315,7 +315,7 @@ public class InterfazHospital extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(btnAgregar)
-                        .addGap(18, 18, 18)
+                        .addGap(39, 39, 39)
                         .addComponent(btnModificar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnEliminar)
@@ -453,14 +453,34 @@ public class InterfazHospital extends javax.swing.JFrame {
 
         btnAgregar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/add.png"))); // NOI18N
         btnAgregar2.setText("Agregar");
+        btnAgregar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregar2ActionPerformed(evt);
+            }
+        });
 
         btnMod2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/boton-editar.png"))); // NOI18N
         btnMod2.setText("Modificar");
+        btnMod2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMod2ActionPerformed(evt);
+            }
+        });
 
         btnEliminar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancelar.png"))); // NOI18N
         btnEliminar2.setText("Eliminar");
+        btnEliminar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminar2ActionPerformed(evt);
+            }
+        });
 
         btnLimpiar2.setText("Limpiar");
+        btnLimpiar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiar2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -494,14 +514,15 @@ public class InterfazHospital extends javax.swing.JFrame {
                             .addComponent(txtEsp)
                             .addComponent(txtHo)
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(cmbEdadD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(btnMod2)
-                                .addGap(58, 58, 58)
-                                .addComponent(btnEliminar2)
-                                .addGap(56, 56, 56)
-                                .addComponent(btnLimpiar2)))))
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cmbEdadD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addComponent(btnMod2)
+                                        .addGap(48, 48, 48)
+                                        .addComponent(btnEliminar2)
+                                        .addGap(54, 54, 54)
+                                        .addComponent(btnLimpiar2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(49, 49, 49))
         );
         jPanel6Layout.setVerticalGroup(
@@ -548,9 +569,9 @@ public class InterfazHospital extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregar2)
                     .addComponent(btnMod2)
-                    .addComponent(btnEliminar2)
+                    .addComponent(btnEliminar2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLimpiar2))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -563,6 +584,11 @@ public class InterfazHospital extends javax.swing.JFrame {
                 "ID", "Nombre", "Telefono", "Dirección", "Correo", "Cédula", "Especialidad", "Horario", "Edad"
             }
         ));
+        tablaDoctores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaDoctoresMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tablaDoctores);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -696,6 +722,68 @@ public class InterfazHospital extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_TablaPacientesMouseClicked
 
+    private void btnAgregar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregar2ActionPerformed
+        // TODO add your handling code here:
+        agregarDoc();
+        limpiarTabla();
+        listarDoctores();
+        nuevoDoc();
+        
+    }//GEN-LAST:event_btnAgregar2ActionPerformed
+
+    private void btnMod2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMod2ActionPerformed
+        // TODO add your handling code here:
+        actualizarDoc();
+        limpiarTabla();
+        listarDoctores();
+        nuevoDoc();
+    }//GEN-LAST:event_btnMod2ActionPerformed
+
+    private void btnEliminar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar2ActionPerformed
+        // TODO add your handling code here:
+        eliminarDoc();
+        limpiarTabla();
+        listarDoctores();
+        nuevoDoc();
+    }//GEN-LAST:event_btnEliminar2ActionPerformed
+
+    private void btnLimpiar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiar2ActionPerformed
+        // TODO add your handling code here:
+        nuevoDoc();
+        txtNomDoc.requestFocus();
+    }//GEN-LAST:event_btnLimpiar2ActionPerformed
+
+    private void tablaDoctoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaDoctoresMouseClicked
+        // TODO add your handling code here:
+        int fila = tablaDoctores.getSelectedRow();
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(this, "Selecciona una fila");
+            
+        }
+        else
+        {
+            id = Integer.parseInt(tablaDoctores.getValueAt(fila, 0).toString());
+            String nom = tablaDoctores.getValueAt(fila, 1).toString();
+            String tel = tablaDoctores.getValueAt(fila, 2).toString();
+            String direccion = tablaDoctores.getValueAt(fila, 3).toString();
+            String correo = tablaDoctores.getValueAt(fila, 4).toString();
+            String cedula = tablaDoctores.getValueAt(fila, 5).toString();
+            String especialidad = tablaDoctores.getValueAt(fila, 6).toString();
+            String horario = tablaDoctores.getValueAt(fila, 7).toString();
+            String edad = tablaDoctores.getValueAt(fila, 8).toString();
+            
+            txtNomDoc.setText(nom);
+            txtTelDoc.setText(tel);
+            txtDir.setText(direccion);
+            txtCorreoD.setText(correo);
+            txtCedulaD.setText(cedula);
+            txtEsp.setText(especialidad);
+            txtHo.setText(horario);
+            cmbEdadD.setSelectedItem(edad);
+            
+        }
+    }//GEN-LAST:event_tablaDoctoresMouseClicked
+
     public void rellenar_combo(){
         for (int i = 1; i < 100; i++) {
             cmbEdad.addItem(String.valueOf(i));
@@ -727,6 +815,29 @@ public class InterfazHospital extends javax.swing.JFrame {
         ob[8] = alergia;
         ob[9] = padecimiento;
         hdao.add(ob);
+    }
+    
+    void agregarDoc(){
+        String nom = txtNomDoc.getText();
+        String tel = txtTelDoc.getText();
+        String dir = txtDir.getText();
+        String correo = txtCorreoD.getText();
+        String ced = txtCedulaD.getText();
+        String esp = txtEsp.getText();
+        String horario = txtHo.getText();
+        String edad = cmbEdadD.getSelectedItem().toString();
+        
+        Object[] ob = new Object[8];
+        ob[0] = nom;
+        ob[1] = tel;
+        ob[2] = dir;
+        ob[3] = correo;
+        ob[4] = ced;
+        ob[5] = esp;
+        ob[6] = horario;
+        ob[7] = edad;
+        
+        ddao.add(ob);
     }
     
     void actualizar(){
@@ -764,6 +875,34 @@ public class InterfazHospital extends javax.swing.JFrame {
         }
     }
     
+    void actualizarDoc(){
+        int fila = tablaDoctores.getSelectedRow();
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(this, "Selecciona una fila");
+        } else {
+            String nom = txtNomDoc.getText();
+            String tel = txtTelDoc.getText();
+            String dir = txtDir.getText();
+            String correo = txtCorreoD.getText();
+            String ced = txtCedulaD.getText();
+            String esp = txtEsp.getText();
+            String horario = txtHo.getText();
+            String edad = cmbEdadD.getSelectedItem().toString();
+            
+            Object[] ob = new Object[8];
+            ob[0] = nom;
+            ob[1] = tel;
+            ob[2] = dir;
+            ob[3] = correo;
+            ob[4] = ced;
+            ob[5] = esp;
+            ob[6] = horario;
+            ob[7] = edad;
+        
+            ddao.actualizar(ob);
+        }
+    }
+    
     void eliminar(){
         int fila = TablaPacientes.getSelectedRow();
         
@@ -774,6 +913,18 @@ public class InterfazHospital extends javax.swing.JFrame {
         else
         {
             hdao.eliminar(id);
+        }
+    }
+    
+    void eliminarDoc(){
+        int fila = tablaDoctores.getSelectedRow();
+        
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(this, "Debes seleccionar una fila");
+        }
+        else
+        {
+            ddao.eliminar(id);
         }
     }
     
@@ -788,6 +939,21 @@ public class InterfazHospital extends javax.swing.JFrame {
         cmbSangre.setSelectedItem("Seleccionar");
         txtAlergias.setText("");
         txtPad.setText("");
+        
+        
+        
+    }
+    
+    void nuevoDoc(){
+        txtNomDoc.setText("");
+        txtTelDoc.setText("");
+        txtDir.setText("");
+        txtCorreoD.setText("");
+        txtCedulaD.setText("");
+        txtEsp.setText("");
+        txtHo.setText("");
+        cmbEdadD.setSelectedItem("Seleccionar");
+        
     }
     
     void limpiarTabla(){
